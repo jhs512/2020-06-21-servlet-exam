@@ -1,6 +1,7 @@
 package com.sbs.example.demo.servlet;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -25,9 +26,13 @@ public class ArticleListServlet extends HttpServlet {
 		DBConnection dBConnection = new DBConnection("localhost", "sbsst", "sbs123414", "blog", 3306);
 		dBConnection.connect();
 
-		Map<String, Object> articleRow = dBConnection.selectRow("SELECT * FROM article LIMIT 1");
+		List<Map<String, Object>> articleRows = dBConnection
+				.selectRows("SELECT * FROM article WHERE displayStatus = 1 ORDER BY id DESC");
 
-		response.getWriter().append((String) articleRow.get("body"));
 		dBConnection.close();
+		
+		request.setAttribute("articleRows", articleRows);
+		
+		request.getRequestDispatcher("/jsp/article/list.jsp").forward(request, response);
 	}
 }
