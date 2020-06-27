@@ -20,12 +20,12 @@ public class DBConnection {
 	private String dbPassword;
 	private int dbPort;
 
-	public DBConnection(String dbHost, String dbName, String dbUser, String dbPassword, int dbPort) {
+	public DBConnection(String dbHost, String dbUser, String dbPassword, String dbName, int dbPort) {
 		super();
 		this.dbHost = dbHost;
-		this.dbName = dbName;
 		this.dbUser = dbUser;
 		this.dbPassword = dbPassword;
+		this.dbName = dbName;
 		this.dbPort = dbPort;
 	}
 

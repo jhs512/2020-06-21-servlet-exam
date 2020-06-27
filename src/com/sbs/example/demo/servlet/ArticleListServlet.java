@@ -22,7 +22,7 @@ public class ArticleListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		DBConnection dBConnection = new DBConnection("localhost", "site3", "sbsst", "sbs123414", 3306);
+		DBConnection dBConnection = new DBConnection("localhost", "sbsst", "sbs123414", "blog", 3306);
 		dBConnection.connect();
 
 		Map<String, Object> articleRow = dBConnection.selectRow("SELECT * FROM article LIMIT 1");
