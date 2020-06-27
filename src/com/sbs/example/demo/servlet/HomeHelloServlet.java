@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/home/hello")
+@WebServlet("/s/home/hello")
 public class HomeHelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -19,12 +19,10 @@ public class HomeHelloServlet extends HttpServlet {
 		String lang = request.getParameter("lang");
 
 		Writer writer = response.getWriter();
-		
-		if ( lang.equals("한글") )
-		{
+
+		if (lang.equals("한글")) {
 			writer.append("안녕하세요.");
-		}
-		else {
+		} else {
 			writer.append("hello!");
 		}
 	}
